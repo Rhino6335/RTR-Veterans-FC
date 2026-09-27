@@ -272,7 +272,7 @@ footer {
   border-radius:12px;
   box-shadow:0 8px 24px rgba(0,0,0,.45);
 }
-</style>
+#players{display:none}\n#players.player-visible{display:block}\n</style>
 </head>
 <body>
 
@@ -372,7 +372,7 @@ footer {
 
   <section id="contact">
     <h2>Contact</h2>
-    <div class="card">Contact details will be added here.</div>
+    <div class="card"><strong>Email:</strong> <a href="mailto:rtrvetsfcchairman@outlook.com" style="color:#f4efe4;">rtrvetsfcchairman@outlook.com</a></div>
   </section>
 </main>
 
@@ -395,6 +395,10 @@ siteMenu.querySelectorAll('a').forEach(function(link) {
     menuBtn.textContent = '☰';
     menuBtn.setAttribute('aria-expanded', 'false');
     menuBtn.setAttribute('aria-label', 'Open menu');
+
+    if (link.getAttribute('href') === '#players') {
+      document.getElementById('players').classList.add('player-visible');
+    }
   });
 });
 </script>
