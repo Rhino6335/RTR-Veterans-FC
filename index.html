@@ -272,7 +272,9 @@ footer {
   border-radius:12px;
   box-shadow:0 8px 24px rgba(0,0,0,.45);
 }
-#players{display:none}\n#players.player-visible{display:block}\n
+#players{display:none;}
+#players.player-visible{display:block;}
+
 .sponsor-card {
   background:rgba(51,32,24,.72);
   border-radius:12px;
@@ -441,14 +443,19 @@ menuBtn.addEventListener('click', function() {
 });
 
 siteMenu.querySelectorAll('a').forEach(function(link) {
-  link.addEventListener('click', function() {
+  link.addEventListener('click', function(event) {
     siteMenu.classList.remove('open');
     menuBtn.textContent = '☰';
     menuBtn.setAttribute('aria-expanded', 'false');
     menuBtn.setAttribute('aria-label', 'Open menu');
 
     if (link.getAttribute('href') === '#players') {
-      document.getElementById('players').classList.add('player-visible');
+      event.preventDefault();
+      const players = document.getElementById('players');
+      players.classList.add('player-visible');
+      setTimeout(function() {
+        players.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 50);
     }
   });
 });
